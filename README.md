@@ -1,4 +1,4 @@
-# Simple SSH Server which a custom user on start
+# Simple SSH Server with a custom user on start
 Start the following way to run a SSH server on port 2222 with the user "me" and the password "mypasswd"   
 `docker run -d -p 2222:22 -e SSHUSER=me -e SSHPASSWD=mypasswd whiledo/ssh-server-custom-user`   
 
