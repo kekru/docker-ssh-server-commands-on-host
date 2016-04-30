@@ -13,10 +13,14 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 ADD resources /data/resources
-RUN chmod 751 /data/resources/entrypoint.sh
+ADD https://raw.githubusercontent.com/kekru/linux-utils/master/shell-forward-via-files/server /data/io/shellforward-server
+ADD https://raw.githubusercontent.com/kekru/linux-utils/master/shell-forward-via-files/client /data/io/shellforward-client
+RUN chmod 751 /data/resources/entrypoint.sh \
+&&  chmod 771 -R /data/io
 
 ENV SSHUSER="root" \
-    SSHPASSWD="root"
+    SSHPASSWD="root" \
+    SHELLFORWARD="no"
 
 EXPOSE 22
 CMD ["/data/resources/entrypoint.sh"]
