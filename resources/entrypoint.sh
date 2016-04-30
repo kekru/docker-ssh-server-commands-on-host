@@ -5,7 +5,7 @@ if [ "$SSHUSER" != "root" ]; then
   useradd -d /home/$SSHUSER -g $SSHUSER -m $SSHUSER
   
   if [ "$SHELLFORWARD" = "yes" ]; then
-    sed -i "s|/home/$SSHUSER:|/home/$SSHUSER:/data/resources/shellforward/client|g" /etc/passwd
+    sed -i "s|/home/$SSHUSER:|/home/$SSHUSER:/data/io/shellforward-client|g" /etc/passwd
   fi
 fi
 
